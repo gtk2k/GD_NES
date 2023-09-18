@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://c17svspf1brcb"]
+
+[ext_resource type="Script" path="res://NES.cs" id="1_od13u"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_jts1y"]
+script/source = "using Godot;
+using System;
+
+public partial class MultiMeshInstance3D : Godot.MultiMeshInstance3D
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
+[sub_resource type="QuadMesh" id="QuadMesh_oeukh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itbte"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vrrmj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pgo6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.964063, 0, -0.265674, 0, 1, 0, 0.265674, 0, 0.964063, 0, 0, 158.075)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Camera3D"]
+script = SubResource("CSharpScript_jts1y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.750381)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="NES" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(256, 0, 0, 0, 240, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_oeukh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_itbte")
+script = ExtResource("1_od13u")
+
+[node name="DebugDisplay" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(200, 0, 0, 0, 100, 0, 0, 0, 1, 0, 180.619, -3.728)
+visible = false
+mesh = SubResource("QuadMesh_vrrmj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_2pgo6")

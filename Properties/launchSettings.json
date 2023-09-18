@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "TextureTest": {
+      "commandName": "Project"
+    },
+    "プロファイル 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\MesonVarjo\\Downloads\\Godot_v4.1.1-stable_mono_win64\\Godot_v4.1.1-stable_mono_win64\\Godot_v4.1.1-stable_mono_win64.exe",
+      "workingDirectory": "D:\\GD_TextureTest"
+    }
+  }
+}
